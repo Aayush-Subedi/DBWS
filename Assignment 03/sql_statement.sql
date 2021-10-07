@@ -1,0 +1,8 @@
+CREATE TABLE Users (user_id INTEGER NOT NULL, fname CHAR(35), lname CHAR(35), email VARCHAR(64), PRIMARY KEY (user_id));
+CREATE TABLE Rentee (phone_no VARCHAR(10), address VARCHAR(10), date_of_birth DATE, rentee_id INTEGER,  FOREIGN KEY (rentee_id) REFERENCES Users (user_id), PRIMARY KEY (rentee_id));
+CREATE TABLE Admins (employee_id INTEGER NOT NULL, title VARCHAR (10), user_id INTEGER, FOREIGN KEY (user_id) REFERENCES Users (user_id), PRIMARY KEY (employee_id));
+CREATE TABLE Renter (phone_no VARCHAR(10), address VARCHAR(10), date_of_birth DATE, average_rate FLOAT (2), renter_id INTEGER , PRIMARY KEY (renter_id), FOREIGN KEY (renter_id) REFERENCES Users (user_id));
+CREATE TABLE Rating (rating_id INTEGER NOT NULL, rentee_id INTEGER, renter_id INTEGER, rating INTEGER, timestamp DATE, PRIMARY KEY (rating_id), FOREIGN KEY (rentee_id) REFERENCES Rentee(rentee_id), FOREIGN KEY (renter_id) REFERENCES Renter(renter_id));
+CREATE TABLE Item (item_id INTEGER NOT NULL, renter_id INTEGER, name VARCHAR(30), item_condition VARCHAR(50), average_rating FLOAT(2), price FLOAT(2), times_rented INTEGER, PRIMARY KEY (item_id), FOREIGN KEY (renter_id) REFERENCES Renter (renter_id));
+CREATE TABLE Rented_item (rent_id INTEGER NOT NULL, rentee_id INTEGER, item_id INTEGER, duration_start DATE, duration_end DATE, PRIMARY KEY (rent_id), FOREIGN KEY (rentee_id) REFERENCES Rentee(rentee_id), FOREIGN KEY (item_id) REFERENCES Item (item_id));
+CREATE TABLE Review_and_rating (review_id INTEGER NOT NULL, user_id INTEGER, item_id INTEGER, rating INTEGER, review VARCHAR (500), timestamp DATE, PRIMARY KEY (review_id), FOREIGN KEY (user_id) REFERENCES Rentee (rentee_id), FOREIGN KEY (item_id) REFERENCES Item (item_id));
