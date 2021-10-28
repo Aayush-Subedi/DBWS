@@ -54,7 +54,7 @@
         </form>
       </div>
       <div>
-        <a href="./pages/maintainance.html">maintainance</a>
+        <a href="../pages/maintainance.html">maintainance</a>
       </div>
       <div id="cart-login">
         <a href="" class="navbar-icons"><i class="fas fa-2x fa-cart-plus"></i></a>

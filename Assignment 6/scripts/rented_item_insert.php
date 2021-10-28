@@ -54,7 +54,7 @@
         </form>
       </div>
       <div>
-        <a href="./pages/maintainance.html">maintainance</a>
+        <a href="../pages/maintainance.html">maintainance</a>
       </div>
       <div id="cart-login">
         <a href="" class="navbar-icons"><i class="fas fa-2x fa-cart-plus"></i></a>
@@ -81,14 +81,16 @@
             $item_id = mysqli_real_escape_string($conn, $_REQUEST['item_id']);
             $input_start_date = $_REQUEST['duration_start'];
             $input_end_date = $_REQUEST['duration_end'];
-            $duration_start = date("Y-m-d H:i:s",strtotime($duration_start));
-            $duration_end = date("Y-m-d H:i:s",strtotime($duration_end));
+
+            $duration_start = date("Y-m-d H:i:s",strtotime($input_start_date));
+            $duration_end = date("Y-m-d H:i:s",strtotime($input_end_date));
+            
             $sql = "INSERT into Rented_item (rentee_id, item_id, duration_start, duration_end) VALUES ('$rentee_id', '$item_id', '$duration_start', '$duration_end')";
             
             
             if ($conn->query($sql) === TRUE) {
                 echo "Record added successfully" . "<br>";
-                echo "<a class='btn btn-primary' href='../pages/user_input.html'>Back</a>";
+                echo "<a class='btn btn-primary' href='../pages/rented_item_input.html'>Back</a>";
 
             }
             else {

@@ -58,50 +58,37 @@
         </div>
     </div>
     <!-- ============== Main Content Starts ================ -->
-    <form action="../scripts/item_insert.php" method="post">
-        
+    <form action="../scripts/renter_insert.php" method="post">
         <div class="form-group row">
-            <label for="name" class="col-sm-2 col-form-label">name</label>
+            <label for="phone_no" class="col-sm-2 col-form-label">phone_no</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="name" placeholder="name">
+                <input type="tel" class="form-control" name="phone_no" placeholder="phone_no">
             </div>
         </div>
         <div class="form-group row">
-            <label for="category" class="col-sm-2 col-form-label">category</label>
+            <label for="address" class="col-sm-2 col-form-label">address</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="category" placeholder="category">
+                <input type="text" class="form-control" name="address" placeholder="address">
             </div>
         </div>
         <div class="form-group row">
-            <label for="condition" class="col-sm-2 col-form-label">condition</label>
+            <label for="dob" class="col-sm-2 col-form-label">dob</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="condition" placeholder="condition">
+                <input type="date" class="form-control" name="dob" placeholder="dob">
             </div>
         </div>
         <div class="form-group row">
-            <label for="rating" class="col-sm-2 col-form-label">rating</label>
+            <label for="average_rate" class="col-sm-2 col-form-label">average_rate</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control" name="rating" placeholder="rating">
+                <input type="number" class="form-control" name="average_rate" placeholder="rating">
             </div>
         </div>
         <div class="form-group row">
-            <label for="price" class="col-sm-2 col-form-label">price</label>
+            <label for="user_id" class="col-sm-2 col-form-label">user_id</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control" name="price" placeholder="price">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="times_rented" class="col-sm-2 col-form-label">times_rented</label>
-            <div class="col-sm-10">
-                <input type="number" class="form-control" name="times_rented" placeholder="times_rented">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="renter_id" class="col-sm-2 col-form-label">renter_id</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" name="renter_id" placeholder="renter_id">
+                <input type="text" class="form-control" name="user_id" placeholder="user_id">
                 <p id="table" class="hide"></p>
-                <button type="button" class="btn btn-primary" id="find" onclick="getData()">Find Renters</button>
+                <button type="button" class="btn btn-primary" id="find" onclick="getData()">Find Users</button>
                 <button type="button" class="btn btn-primary hide" id="hide" onclick="h()">Hide</button>
             </div>
         </div>
@@ -138,7 +125,8 @@
 
             var list = data.split("{");
             var users = [];
-            var html = "<table class='table' id='table'><tr><th>renter_id</th><th>phone_no</th><th>address</th><th>date of birth</th><th>average_rating</th></tr><tr>"
+            var html =
+                "<table class='table' id='table'><tr><th>user_id</th><th>fname</th><th>lname</th><th>email</th></tr><tr>"
 
             for (var i in list) {
                 list[i] = list[i].slice(0, -1);
@@ -173,7 +161,7 @@
         function getData() {
             console.log("clicked");
             $.ajax({
-                url: "../scripts/fetch_renters.php",
+                url: "../scripts/fetch_users.php",
                 success: function (data) {
                     table(data);
                 }

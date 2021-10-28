@@ -77,22 +77,23 @@
                 die("Connection failed: " . $conn->connect_error);
             }
 
-            $user_id = mysqli_real_escape_string($conn, $_REQUEST['user_id']);
-            $item_id = mysqli_real_escape_string($conn, $_REQUEST['item_id']);
-            $rating = mysqli_real_escape_string($conn, $_REQUEST['rating']);
-            $review = mysqli_real_escape_string($conn, $_REQUEST['review']);
-            $sql = "INSERT into Review_and_rating (user_id, item_id, rating, review) VALUES ('$user_id', '$item_id', '$rating', '$review')";
+            $phone_no = mysqli_real_escape_string($conn, $_REQUEST['phone_no']);
+            $address = mysqli_real_escape_string($conn, $_REQUEST['address']);
+            $dob = date("Y-m-d H:i:s",strtotime(mysqli_real_escape_string($conn, $_REQUEST['dob'])));
+            
+            $sql = "INSERT into Renter (phone_no, address, date_of_birth) VALUES ('$phone_no',  '$address', '$dob')";
+            
             
             if ($conn->query($sql) === TRUE) {
-                echo "Record added successfully" . "<br>";
-                echo "<a class='btn btn-primary' href='../pages/user_input.html'>Back</a>";
+                echo "Record with added successfully" . "<br>";
+                echo "<a class='btn btn-primary' href='../pages/rentee_input.html'>Back</a>";
 
             }
             else {
                 echo "Error: " .$sql . "<br>". $conn->error;
             }
             $conn->close();
-        ?>
+    ?>
     <!-- ============== Main Content Ends ================ -->
     <!-- ========= Footer Starts Here ========= -->
     <footer id="footer">

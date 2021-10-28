@@ -54,7 +54,7 @@
         </form>
       </div>
       <div>
-        <a href="./pages/maintainance.html">maintainance</a>
+        <a href="../pages/maintainance.html">maintainance</a>
       </div>
       <div id="cart-login">
         <a href="" class="navbar-icons"><i class="fas fa-2x fa-cart-plus"></i></a>
@@ -87,9 +87,9 @@
             
             if ($conn->query($sql) === TRUE) {
                 echo "Record added successfully" . "<br>";
-                echo "<a class='btn btn-primary' href='../pages/user_input.html'>Back</a>";
-
+                echo "<a class='btn btn-primary' href='../pages/rating_input.html'>Back</a>";
             }
+            
             else {
                 echo "Error: " .$sql . "<br>". $conn->error;
             }

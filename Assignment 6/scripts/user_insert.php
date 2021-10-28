@@ -54,7 +54,7 @@
         </form>
       </div>
       <div>
-        <a href="./pages/maintainance.html">maintainance</a>
+        <a href="../pages/maintainance.html">maintainance</a>
       </div>
       <div id="cart-login">
         <a href="" class="navbar-icons"><i class="fas fa-2x fa-cart-plus"></i></a>
@@ -92,13 +92,13 @@
                 echo "Error: " .$sql . "<br>". $conn->error;
             }
             $conn->close();
-        ?>
+    ?>
     <!-- ============== Main Content Ends ================ -->
     <!-- ========= Footer Starts Here ========= -->
     <footer id="footer">
       <div>Contact Us</div>
       <div><span>&copy;</span>Copyright 2021</div>
-      <div><a href="disclaimer.html" id="dis">Disclaimer</a></div>
+      <div><a href="../disclaimer.html" id="dis">Disclaimer</a></div>
       <div id="social-media">
         <i class="fab icons fa-2x fa-facebook"></i>
         <i class="fab icons fa-2x fa-instagram"></i>
@@ -110,3 +110,4 @@
     <script src="./index.js"></script>
   </body>
 </html>
+

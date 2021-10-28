@@ -14,6 +14,7 @@
     />
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- Linking CSS File -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css" />
     <title>My E-Commerce</title>
@@ -87,6 +88,14 @@
         </div>
         <div class="form-group row">
           <div class="col-sm-10">
+            <p id="table" class="hide"></p>
+            <button type="button" class="btn btn-primary" id="find" onclick="getData('user')">Find Users</button>
+            <button type="button" class="btn btn-primary" id="find" onclick="getData('item')">Find Items</button>
+            <button type="button" class="btn btn-primary hide" id="hide" onclick="h()">Hide</button>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10">
             <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </div>
@@ -107,5 +116,71 @@
     </footer>
     <!-- =========== Footer  Ends Here ============ -->
     <script src="./index.js"></script>
+    <script type="text/javascript">
+      var html;
+     function table(data) {
+       var t = document.getElementById("table");
+       var b = document.getElementById("hide");
+       t.style.display = "block";
+       b.style.display = "inline";
+ 
+       var list = data.split("{");
+       var users = [];
+      
+ 
+       for (var i in list) {
+         list[i] = list[i].slice(0, -1);
+       }
+ 
+       for (var i in list) {
+         users.push(list[i].split(","));
+       }
+       console.log(users);
+       for (var i in users) {
+         for (var j in users[i]) {
+           var text = users[i][j].split(":")[1];
+           if (text) {
+             html += "<td>" + users[i][j].split(":")[1].replace("\"", '').slice(0, -1) + "</td>";
+           }
+         }
+         html += "</tr><tr>"
+       }
+ 
+       html += "</tr></table>"
+ 
+       t.innerHTML = html;
+     }
+ 
+     function h() {
+       var t = document.getElementById("table");
+       var b = document.getElementById("hide");
+       t.style.display = "none";
+       b.style.display = "none";
+     }
+ 
+     function getData(type) {
+       if (type === 'user') {
+         $.ajax({
+           url: "../scripts/fetch_users.php",
+           success: function (data) {
+             table(data);
+           }
+         })
+         html =
+         "<table class='table' id='table'><tr><th>user_id</th><th>fname</th><th>lname</th><th>email</th></tr><tr>"
+       }
+       else {
+         $.ajax({
+           url: "../scripts/fetch_items.php",
+           success: function (data) {
+             table(data);
+           }
+         })
+         html =
+         "<table class='table' id='table'><tr><th>item_id</th><th>renter_id</th><th>Name</th><th>Category</th><th>Description</th><th>Rating</th><th>Price</th><th>Times rented</th></tr><tr>"
+       }
+ 
+     }
+   </script>
   </body>
 </html>
