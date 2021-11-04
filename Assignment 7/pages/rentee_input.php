@@ -47,7 +47,6 @@
 <?php include("../components/footer.php") ?>
 
 <!-- =========== Footer  Ends Here ============ -->
-<script src="./index.js"></script>
 <script type="text/javascript">
     function table(data) {
         var t = document.getElementById("table");

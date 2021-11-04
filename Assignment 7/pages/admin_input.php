@@ -4,7 +4,6 @@
 
 <?php include("../components/header.php") ?>
 
-
 <form action="../scripts/inserter.php" method="post" class="form">
   <div class="form-group row">
     <label for="title" class="col-sm-2 col-form-label">title</label>
@@ -30,7 +29,6 @@
 
 <?php include("../components/footer.php") ?>
 <!-- =========== Footer  Ends Here ============ -->
-<script src="./index.js"></script>
 <script type="text/javascript">
   function table(data) {
     var t = document.getElementById("table");

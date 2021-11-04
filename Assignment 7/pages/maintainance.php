@@ -22,5 +22,3 @@
 <!-- ========= Footer Starts Here ========= -->
 <?php include("../components/footer.php") ?>
 <!-- =========== Footer  Ends Here ============ -->
-
-<script src="./index.js"></script>

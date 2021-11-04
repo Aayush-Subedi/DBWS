@@ -1,7 +1,11 @@
+<head>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+
 <?php include("./components/header.php") ?>
 
-<main>
-  <p id="disclaimer">
+<div id="disclaimer">
+  <p>
     This website is student lab work and does not necessarily reflect Jacobs University Bremen opinions. Jacobs University Bremen does not endorse this site, nor is it checked by Jacobs University
     Bremen regularly, nor is it part of the official Jacobs University Bremen web presence.
     For each external link existing on this website, we initially have checked that the target page
@@ -9,16 +13,12 @@
     No information conflicting with GDPR is stored in the server. <br><br>
     Made by
   </p>
-  <p id="made-by">
-
+  <p>
     a.subpedi at jacobs-university.de | t.adane at jacobs-university.de | a.berhane at jacobs-university.de | m.haile at jacobs-university.de
   </p>
-</main>
+</div>
 
 <!-- ========= Footer Starts Here ========= -->
 <?php include("./components/footer.php") ?>
 <!-- =========== Footer  Ends Here ============ -->
 <script src="./index.js"></script>
-</body>
-
-</html>

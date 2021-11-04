@@ -14,7 +14,7 @@
     <div class="form-group row">
       <label for="lname" class="col-sm-2 col-form-label">lname</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="fname" placeholder="fname">
+        <input type="text" class="form-control" name="lname" placeholder="lname">
       </div>
     </div>
     <div class="form-group row">
@@ -35,4 +35,3 @@
   <?php include("../components/footer.php") ?>
 
   <!-- =========== Footer  Ends Here ============ -->
-  <script src="./index.js"></script>

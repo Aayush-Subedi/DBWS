@@ -12,7 +12,7 @@
 
     <!-- Stylesheet -->
     <link <?php
-            if (end(explode("/", getcwd())) == 'html') {
+            if (end(explode("/", getcwd())) == 'public_html') {
                 echo  'href="./css/style.css"';
             } else {
                 echo  'href="../css/style.css"';
@@ -20,7 +20,6 @@
             ?> rel="stylesheet" />
 
     <!-- Jquery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
     <title>Rent-it</title>
 </head>
 
