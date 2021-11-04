@@ -62,12 +62,22 @@
 
                 ?>
             </li>
+            <li class="nav-item">
+                <?php
+                if (end(explode("/", getcwd())) == 'public_html') {
+                    echo  '<a href="./pages/queries.php" class="nav-link">Queries</a>';
+                } else {
+                    echo  '<a href="../pages/queries.php" class="nav-link">Queries</a>';
+                }
+
+                ?>
+            </li>
             <li class="nav-item" id="search-input-box">
                 <form action="" class="form-inline">
-                    <input type="search" placeholder="Search" class="form-control" aria-label="Search" id="search-input"/>
+                    <input type="search" placeholder="Search" class="form-control" aria-label="Search" id="search-input" />
                 </form>
             </li>
-            
+
             <li class="nav-item">
                 <a href=""><i class="fas fa-2x fa-cart-plus"></i></a>
             </li>
