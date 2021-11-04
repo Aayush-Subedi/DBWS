@@ -1,40 +1,48 @@
-<?php include("../components/header.php") ?>
 <head>
-    <link rel="stylesheet" href="../css/query.css" />
+    <link rel="stylesheet" href="../css/input.css" />
 </head>
+
+<?php include("../components/header.php") ?>
+
 
 
 <form>
-    <div class="input-group row user_search">
-        <input type="search" class="form-control rounded col-11" placeholder="Enter person name" aria-label="Search" aria-describedby="search-addon" name="search" id="search" />
-        <button type="button" class="btn btn-outline-primary col-1" onclick="getData()">search</button>
+    <div class="container">
+        <div class="input-group row">
+            <input type="search" class="form-control rounded col-11" placeholder="Item Name or Category" aria-label="Search" aria-describedby="search-addon" name="search" id="search" />
+            <button type="button" class="btn btn-outline-primary col-1" onclick="getData()">search</button>
+        </div>
     </div>
-    <div class="user_search" id="table">
+    <div class="result">
+        <div id="table">
 
+        </div>
     </div>
 </form>
 
 
 <?php include("../components/footer.php") ?>
 
-<script type="text/javascript">
+<?php include("../components/footer.php") ?>
 
+<script type="text/javascript">
     function check(e) {
         let data = e.target.parentNode.innerHTML.split('<td>');
         data.shift()
-        for (i in data ) {
+        for (i in data) {
             data[i] = data[i].substring(0, data[i].length - 5);
         }
-        window.location.href = 'single_result_user.php?dist='+data[0];
+
+        window.location.href = 'single_result_renter.php?dist=' + data[0];
     }
+
     function table(data) {
         console.log(data);
         var t = document.getElementById("table");
-        t.style.display = "block";
 
         var list = data.split("{");
         var users = [];
-        var html = "<table class='table' id='table'><tr><th>User Id</th><th>First Name</th><th>Last Name</th><th>email</th></tr><tr id='row2' onclick='check(event)'>"
+        var html = "<table class='table' id='table'><tr><th>Renter Id</th><th>First Name</th><th>Last Name</th><th>Email</th></tr><tr id='row' onclick='check(event)'>"
 
         for (var i in list) {
             list[i] = list[i].slice(0, -1);
@@ -59,14 +67,14 @@
     }
 
     function getData() {
-        var name = document.getElementById('search').value;
+        var search = document.getElementById('search').value;
 
         $.ajax({
             type: "post",
             url: "../scripts/queries.php",
             data: {
-                'name': name,
-                'type': 'users-part'
+                'fname': search,
+                'type': 'renters-part'
             },
             success: function(data) {
                 table(data);
@@ -74,5 +82,7 @@
         })
 
     }
-    
+    $(':radio').change(function() {
+        rating = this.value;
+    });
 </script>

@@ -1,39 +1,28 @@
 <?php include("../components/header.php") ?>
 
-<head>
-    <link rel="stylesheet" href="../css/query.css" />
-</head>
-
+<link rel="stylesheet" href="../css/query.css" />
 <form class="form container">
     <div class="row">
         <div class="filters col-3">
-            <form class="container rating">
+            <form>
                 <div class="form-group row">
-                    <label>Rating Above:</label>
-                    <div class="rating">
-                        <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
-                        <label for="star5">☆</label>
-                        <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
-                        <label for="star4">☆</label>
-                        <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
-                        <label for="star3">☆</label>
-                        <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
-                        <label for="star2">☆</label>
-                        <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
-                        <label for="star1">☆</label>
-                        <div class="clear"></div>
+                    <label for="rating_item_min" class="col-sm-2 col-form-label">From</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="rating_item_min" id="rating_item_min">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="rating_item_max" class="col-sm-2 col-form-label">To</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="rating_item_max" id="rating_item_max">
                     </div>
                 </div>
             </form>
-            <div class="form-group row">
-                <label class="col-4 price">Price Below:</label>
-                <input class="col-6" type="number" name="price" id="price" />
-            </div>
         </div>
         <div class="input-group rounded col-9">
             <div class="container">
                 <div class="input-group row">
-                    <input type="search" class="form-control rounded col-11" placeholder="Item Name or Category" aria-label="Search" aria-describedby="search-addon" name="search" id="search" />
+                    <input type="search" class="form-control rounded col-11" placeholder="Item Name" aria-label="Search" aria-describedby="search-addon" name="search" id="search" />
                     <button type="button" class="btn btn-outline-primary col-1" onclick="getData()">search</button>
                 </div>
             </div>
@@ -99,23 +88,21 @@
     var rating;
 
     function getData() {
-        var price = document.getElementById('price').value;
+        var rating_min = document.getElementById('rating_item_min').value;
+        var rating_max = document.getElementById('rating_item_max').value;
         var search = document.getElementById('search').value;
 
-        $(':radio').change(function() {
-            rating = this.value;
-        });
-
         console.log(rating);
-        console.log(price);
+        console.log(rating_min);
+        console.log(rating_max);
         console.log(search);
 
         $.ajax({
             type: "post",
-            url: "../scripts/queries.php",
+            url: "../scripts/search_item_rating.php",
             data: {
-                'rating': rating,
-                'price': price,
+                'rating_min': rating_min,
+                'rating_max': rating_max,
                 'search': search,
                 'type': 'items-part'
             },
@@ -125,7 +112,4 @@
         })
 
     }
-    $(':radio').change(function() {
-        rating = this.value;
-    });
 </script>

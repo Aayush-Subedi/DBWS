@@ -65,3 +65,21 @@
     width: 70%;
     margin: auto;
   }
+
+  .user_search {
+      width: 50%;
+      margin: auto;
+      padding: 15px;
+  }
+
+  .row2:hover {
+    cursor: pointer;
+  }
+
+  .rating {
+    display: inline;
+  }
+
+  .price, #price {
+    padding: 0;
+  }

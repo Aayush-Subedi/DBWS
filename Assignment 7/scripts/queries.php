@@ -16,6 +16,31 @@ if ($_POST['type'] == 'items-part') {
     $rating_q = 'trim(average_rating) =';
     $price_q = 'trim(price) =';
     $sql = "SELECT * FROM Item WHERE $search_q = '$search' AND $price_q  '$price' AND $rating_q '$rating'";
+}
+
+else if ($_POST['type'] == 'users-part') {
+    $name_q = 'fname';
+    $name = (isset($_POST['name']) && $_POST['name'] != '') ? $_POST['name'] : (1) && ($name_q = '1');
+    $sql = "SELECT user_id, fname, lname, email FROM Users WHERE $name_q = '$name'";
+    echo $sql;
+}
+
+else if ($_POST['type'] == 'users-full') {
+    $user_id = $_POST['user_id'];
+    $sql = "SELECT Users.user_id, Users.fname, Rented_item.rent_id, Rented_item.duration_start, Rented_item.duration_end FROM Rented_item INNER JOIN Users ON Users.user_id = Rented_item.rentee_id AND Users.user_id = '$user_id' ";
+    echo $sql;
+}
+
+else if($_POST['type'] == 'renters-part'){
+    $name_q = 'fname';
+    $name = (isset($_POST['name']) && $_POST['name'] != '') ? $_POST['name'] : (1) && ($name_q = '1');
+    $sql = "SELECT Renter.renter_id, Users.fname, Users.lname, Users.email FROM Users INNER JOIN Renter WHERE Users.user_id = Renter.renter_id AND $name_q = '$name'";
+    echo $sql;
+}
+
+else if($_POST['type'] == 'renters-full'){
+    $user_id = $_POST['user_id'];
+    $sql = "SELECT Item.name, Item.category, Item.price, Item.average_rating FROM Item INNER JOIN Renter WHERE Item.renter_id = Renter.renter_id AND Renter.renter_id = '$user_id'";
     echo $sql;
 }
 
