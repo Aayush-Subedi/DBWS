@@ -1,0 +1,25 @@
+.form, .result {
+    padding: 50px;
+    margin: auto;
+    width: 70vw;
+}
+
+input:invalid {
+    border: 2px solid  red;
+}
+
+.table {
+    overflow-y: scroll;
+}
+
+.authenticator {
+    margin: 10px;
+}
+
+.authenticator_child {
+    width: fit-content;
+    margin: auto;
+    border: solid 1px #CED4DA;
+    border-radius: 20px;
+    padding: 10px;
+}
