@@ -9,7 +9,8 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <!-- Stylesheet -->
     <link <?php
             if (end(explode("/", getcwd())) == 'public_html') {
@@ -24,7 +25,7 @@
 </head>
 
 <!-- ============== Navbar ================= -->
-<nav class="navbar navbar-expand-md">
+<nav class="navbar navbar-expand-md main-navbar" id="main-navbar">
     <a class="navbar-brand" <?php
                             if (end(explode("/", getcwd())) == 'public_html') {
                                 echo  'href="./index.php"><img src="./logo.png"';
@@ -49,7 +50,14 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Best Sellers</a>
+                <?php
+                if (end(explode("/", getcwd())) == 'public_html') {
+                    echo  '<a href="./pages/best_seller.php" class="nav-link">Best Seller</a>';
+                } else {
+                    echo  '<a href="../pages/best_seller.php" class="nav-link">Best Seller</a>';
+                }
+
+                ?>
             </li>
             <li class="nav-item">
                 <?php
@@ -73,7 +81,7 @@
             </li>
             <li class="nav-item" id="search-input-box">
                 <form action="" class="form-inline">
-                    <input type="search" placeholder="Search" class="form-control" aria-label="Search" id="search-input" />
+                    <input type="search" placeholder="Search" class="form-control"  aria-label="Search" id="search-input" />
                 </form>
             </li>
 

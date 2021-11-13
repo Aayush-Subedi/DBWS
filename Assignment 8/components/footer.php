@@ -1,4 +1,4 @@
-<footer>
+<footer class="navbar bottom" id="main-footer">
     <div><a href="#">Contact Us</a></div>
     <div>Group17<span>&copy;</span>Copyright 2021</div>
     <div>
