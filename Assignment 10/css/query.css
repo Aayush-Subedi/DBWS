@@ -1,0 +1,110 @@
+.form {
+  margin: auto;
+  padding: 20px;
+}
+
+.filters {
+  border-right: solid 1px black;
+  width: 100%;
+}
+
+.input-group-text {
+  width: 30px;
+}
+
+.hide {
+  display: none;
+}
+
+.clear {
+  float: none;
+  clear: both;
+}
+
+.rating {
+  width: 90px;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+  position: relative;
+}
+
+.rating>label {
+  float: right;
+  display: inline;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  width: 1.1em;
+  cursor: pointer;
+  color: #000;
+}
+
+.rating>label:hover,
+.rating>label:hover~label,
+.rating>input.radio-btn:checked~label {
+  color: transparent;
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before,
+.rating>input.radio-btn:checked~label:before,
+.rating>input.radio-btn:checked~label:before {
+  content: "\2605";
+  position: absolute;
+  left: 0;
+  color: #FFD700;
+}
+
+.single-result-table {
+  padding: 50px;
+  width: 70%;
+  margin: auto;
+}
+
+.user_search {
+  width: 50%;
+  margin: auto;
+  padding: 15px;
+}
+
+#row:hover {
+  cursor: pointer;
+  border: solid 1px black;
+  transition: 500ms;
+}
+
+#row:hover {
+  cursor: pointer;
+  border: solid 1px black;
+  transition: 300ms;
+  color: #b47eb3;
+
+}
+
+#row {
+  transition: 300ms;
+  border: 0.1px white solid;
+}
+
+.rating {
+  display: inline;
+}
+
+.price,
+#price {
+  padding: 0;
+}
+
+
+.authenticator {
+  margin: 10px;
+}
+
+.authenticator_child {
+  width: fit-content;
+  margin: auto;
+  border: solid 1px #CED4DA;
+  border-radius: 20px;
+  padding: 10px;
+}
